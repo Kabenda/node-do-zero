@@ -10,9 +10,7 @@ const database = new DatabasePostgres()
 server.post('/videos',async (request, reply) => {
 
 const { title, description, duration } = request.body
-
     //console.log(body)
-
    await database.create({
         //short sintax qdo o var e = ao param
         title,
@@ -56,5 +54,5 @@ server.delete('/videos/:id',async (request, reply) => {
 
 
 server.listen({
-    port: 3333,
+    port: process.env.port ?? 3333,
 })
